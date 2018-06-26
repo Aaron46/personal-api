@@ -35,7 +35,7 @@ paths:
           content:
             text/plain:
               schema:
-                title: Weather not found
+                title: Root not found
                 type: string
                 example: Not found 
     
@@ -45,7 +45,7 @@ paths:
         - institutions
       summary: Get places where Aaron Shor has learnt programming.
       description: Aaron Shor's been educated in PCS. To learn more about PCS GET  their data. 
-      operationId: GetEducationInfo
+      operationId: GetInstitutionInfo
       responses:
         200:
           description: Successful response
@@ -78,10 +78,11 @@ paths:
                 title: List not found
                 type: string
                 example: Not found
+
   '/institutions/id':
     get:
       tags:
-        - education by id
+        - institutions by id
       summary: Get places where Aaron Shor has learnt programming.
       description: Aaron Shor's been educated in PCS. To learn more about PCS GET  their data. 
       operationId: GetEducationInfo
@@ -128,13 +129,13 @@ paths:
                 type: string
                 example: Not found
   
-  /employers:
+  /employment:
     get:
       tags:
         - employment
       summary: Get places where Aaron Shor has learnt programming.
       description: Aaron Shor has interned at Bitbean. To learn more about about Aaron Shor's internship at bitbean, GET the data."
-      operationId: GetEducationInfo
+      operationId: GetEmploymentInfo
       responses:
         200:
           description: Successful response
@@ -167,10 +168,10 @@ paths:
                 type: string
                 example: Not found
                 
-  '/employers/id':
+  '/employment/id':
     get:
       tags:
-        - employers by id
+        - employment by id
       summary: Get places where Aaron Shor has learnt programming.
       description: Aaron Shor's been educated in PCS. To learn more about PCS GET  their data. 
       operationId: GetEducationInfo
@@ -295,7 +296,7 @@ paths:
           content:
             text/plain:
               schema:
-                title: Weather not found
+                title: Project not found
                 type: string
                 example: Not found
 tags:
@@ -305,5 +306,8 @@ tags:
     - name: institutions
       description:  institution details 
     
-    - name: employers
+    - name: employment
       description: employer details
+
+    - name: projects
+      description: project details  
