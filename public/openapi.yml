@@ -1,0 +1,309 @@
+openapi: "3.0.1"
+
+info:
+  title: AaronShor API
+  description: "Get Aaron Shor's business and personal info."
+  version: '1.0'
+  contact:
+    email: AaronEShor@gmail.com
+  license:
+    name: "MIT"
+    url: https://opensource.org/licenses/MIT
+
+servers:
+    - url: http://api.aaronshor.api/data/1.0/
+      description: Production server
+
+paths:
+  /:
+   get:
+      tags:
+       - root of AaronShorApi
+      summary: All about Aaron Shor
+      description: Aaron Shor has been through a number of different Institutions and work environments.
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Successful response
+                type: string
+                example: Success
+        404:
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Weather not found
+                type: string
+                example: Not found 
+    
+  /institutions:
+    get:
+      tags:
+        - institutions
+      summary: Get places where Aaron Shor has learnt programming.
+      description: Aaron Shor's been educated in PCS. To learn more about PCS GET  their data. 
+      operationId: GetEducationInfo
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                 data:
+                  type: array
+                  items:
+                   type: object
+                   properties:
+                    type:
+                     type: string
+                    id:
+                     type: string
+                    attributes:
+                     type: object
+                     properties:
+                      name:
+                       type: string
+                  
+                
+        404:
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: List not found
+                type: string
+                example: Not found
+  '/institutions/id':
+    get:
+      tags:
+        - education by id
+      summary: Get places where Aaron Shor has learnt programming.
+      description: Aaron Shor's been educated in PCS. To learn more about PCS GET  their data. 
+      operationId: GetEducationInfo
+      parameters:
+         - name: id
+           in: path
+           description: "**Education ID**. *Example: `1`*. You can call by education ID. API responds with exact result.  *Note: A single ID counts as a one API call. So, if you have city IDs. it's treated as 3 API calls.*"
+           schema:
+             type: string
+           required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                 data:
+                   type: object
+                   properties:
+                    type:
+                     type: string
+                    id:
+                     type: string
+                    attributes:
+                     type: object
+                     properties:
+                      name:
+                       type: string
+                      address:
+                       type: string
+                      dateStart: 
+                       type: string
+                      dateEnd:
+                       type: string
+                  
+        404:
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Institution not found
+                type: string
+                example: Not found
+  
+  /employers:
+    get:
+      tags:
+        - employment
+      summary: Get places where Aaron Shor has learnt programming.
+      description: Aaron Shor has interned at Bitbean. To learn more about about Aaron Shor's internship at bitbean, GET the data."
+      operationId: GetEducationInfo
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                 data:
+                  type: array
+                  items:
+                   type: object
+                   properties:
+                    type:
+                     type: string
+                    id:
+                     type: string
+                    attributes:
+                     type: object
+                     properties:
+                      name:
+                       type: string
+                  
+        404:
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Weather not found
+                type: string
+                example: Not found
+                
+  '/employers/id':
+    get:
+      tags:
+        - employers by id
+      summary: Get places where Aaron Shor has learnt programming.
+      description: Aaron Shor's been educated in PCS. To learn more about PCS GET  their data. 
+      operationId: GetEducationInfo
+      parameters:
+         - name: id
+           in: path
+           description: "**EMployers ID**. *Example: `1`*. You can call by employers ID. API responds with exact result.  *Note: A single ID counts as one API call. So, if you have city IDs. it's treated as 3 API calls.*"
+           schema:
+             type: string
+           required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                 data:
+                   type: object
+                   properties:
+                    type:
+                     type: string
+                    id:
+                     type: string
+                    attributes:
+                     type: object
+                     properties:
+                      name:
+                       type: string
+                      address:
+                       type: string
+                      dateStart: 
+                       type: string
+                      dateEnd:
+                       type: string 
+        404:
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Weather not found
+                type: string
+                example: Not found              
+ 
+  /projects:
+    get:
+      tags:
+        - projects
+      summary: Get places where Aaron Shor has learnt programming.
+      description: Aaron Shor's been educated in PCS. To learn more about PCS GET  their data. 
+      operationId: GetEducationInfo
+      responses:
+       200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                 data:
+                  type: array
+                  items:
+                   type: object
+                   properties:
+                    type:
+                     type: string
+                    id:
+                     type: string
+                    attributes:
+                     type: object
+                     properties:
+                      name:
+                       type: string
+                  
+       404:
+        description: Not found response
+        content:
+          text/plain:
+            schema:
+              title: Weather not found
+              type: string
+              example: Not found
+  '/projects/id':
+    get:
+      tags:
+        - projects by id
+      summary: Get all projects Aaron Shor has built or collaborated on.
+      description: Aaron Shor's portfolio. GET  the portfolio. 
+      operationId: GetEducationInfo
+      parameters:
+         - name: id
+           in: path
+           description: "**Projects ID**. *Example: `1`*. You can call by project ID. API responds with exact result.  *Note: A single ID counts as a one API call. So, if you have city IDs. it's treated as 3 API calls.*"
+           schema:
+             type: string
+           required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                 data:
+                   type: object
+                   properties:
+                    type:
+                     type: string
+                    id:
+                     type: string
+                    attributes:
+                     type: object
+                     properties:
+                      name:
+                       type: string
+                      description:
+                       type: string
+        404:
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Weather not found
+                type: string
+                example: Not found
+tags:
+    - name: root of AaronShorApi
+      description: root file.
+      
+    - name: institutions
+      description:  institution details 
+    
+    - name: employers
+      description: employer details
