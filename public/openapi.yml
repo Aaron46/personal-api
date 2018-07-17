@@ -11,7 +11,7 @@ info:
     url: https://opensource.org/licenses/MIT
 
 servers:
-    - url: http://api.aaronshor.api/
+    - url: http://api.aaronshor.codes/
       description: Production server
 
 paths:
